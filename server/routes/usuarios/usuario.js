@@ -31,31 +31,7 @@ app.get('/', (req,res)=>{
   // return res.download(rutaDescarga, 'index.html');
 })
 
-app.get('/encuentrausuario', (req,res) =>{
-    const _idUsuario = parseInt(req.body._id);
-    if (!_idUsuario) {
-        return res.status(400).json({
-            ok: false,
-            msg: "No se recibió un ID",
-            cont:_idUsuario
-        })
-    }
 
-    const findUser = arrJsnUsuarios.find(usuario => usuario._id == _idUsuario)
-    if (!findUser) {
-        return res.status(400).json({
-            ok:false,
-            msg: `No se encuentra el usuario ${_idUsuario} en la base de datos`
-        })
-    }
-
-    return res.status(200).json({
-        ok:this.true,
-        msg: `El usuario ${_idUsuario} se encuentra en la base de datos `,
-        cont: arrJsnUsuarios
-    })
-
-})
 
     app.post('/',(req,res) =>{       
 
